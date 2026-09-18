@@ -1,9 +1,10 @@
-# Constituição — v1.3.0
+# Constituição — v1.3.1
 
 > **AVISO DE FONTE ÚNICA DA VERDADE:**  
-> A constituição dos Agentes Maestros foi consolidada e é mantida oficialmente em [`MEUS_AGENTES/PROTOCOLO_AGENTES_MAESTROS.md`](file:///d:/ARQUIVO%20CENTRAL/TUDO%20BEM%20PARATY/Antigravity%20Root/MEUS_AGENTES/PROTOCOLO_AGENTES_MAESTROS.md).
+> A constituição dos Agentes Maestros foi consolidada e é mantida oficialmente em [`.agents/PROTOCOLO_AGENTES_MAESTROS.md`](file:///d:/ARQUIVO%20CENTRAL/TUDO%20BEM%20PARATY/AI%20Roots/.agents/PROTOCOLO_AGENTES_MAESTROS.md).
 >
 > **Histórico de versões:**
+> - v1.3.1 (2026-09-18): só correção de caminhos após a reestruturação de 17/09 (`MEUS_AGENTES` → `.agents/`); nenhuma regra alterada.
 > - v1.3.0 (2026-09-17): ratificação das P-101 a P-106 (governança multi-assistente). Origem: `.spec/features/multi-assistente-sync.md`.
 > - v1.2.0: baseline com P-001 e P-002.
 
@@ -90,4 +91,4 @@ Todo SSOT que é um SKILL.md tem, logo abaixo do frontmatter, um bloco de coment
 2. Motivo pelo qual não pode ser regenerado automaticamente.
 3. Regressões conhecidas que **não** podem reaparecer.
 
-Modelo funcional em: `Antigravity Root/.agents/skills/upcode/SKILL.md`.
+Modelo funcional em: `.agents/skills/upcode/SKILL.md`.

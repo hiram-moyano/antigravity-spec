@@ -20,7 +20,7 @@
     2 = erro de execução
 
 .PARAMETER Root
-  Raiz do AI Roots. Padrão: dois níveis acima deste script.
+  Raiz do AI Roots. Padrão: três níveis acima deste script (Antigravity Root/.spec/verification).
 
 .PARAMETER Fix
   Se presente, imprime também um sugestão de frontmatter mínimo pra colar no início
