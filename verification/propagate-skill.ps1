@@ -44,8 +44,10 @@ $Root = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..')).Path
 
 function Read-YamlFrontmatter {
   param([string]$Path)
-  $content = Get-Content -LiteralPath $Path -Raw
-  if ($content -notmatch '^---\s*\r?\n(.*?)\r?\n---\s*\r?\n(.*)$') {
+  # -Encoding UTF8: no PowerShell 5.1, sem isso UTF-8 sem BOM vira mojibake (causa dos acentos corrompidos de 17/09)
+  $content = Get-Content -LiteralPath $Path -Raw -Encoding UTF8
+  # (?s): '.' precisa atravessar quebras de linha; sem isso nenhum frontmatter real era reconhecido
+  if ($content -notmatch '(?s)^\uFEFF?---\s*\r?\n(.*?)\r?\n---\s*\r?\n(.*)$') {
     throw "Sem frontmatter: $Path"
   }
   $yaml = $Matches[1]
@@ -113,7 +115,8 @@ foreach ($m in $mirrors) {
   Write-Host "-> $m" -ForegroundColor Cyan
 
   if (Test-Path -LiteralPath $mirrorPath) {
-    $existing = Read-YamlFrontmatter -Path $mirrorPath
+    # Mirror antigo pode nao ter frontmatter (ex.: comando criado a mao) — tratar como nunca propagado
+    try { $existing = Read-YamlFrontmatter -Path $mirrorPath } catch { $existing = @{ Body = '' } }
     $prevOrigin = ($existing.Body -split "\r?\n" | Where-Object { $_ -match '^\s*<!--\s*generated from .* @ ([a-f0-9]{12,})\s*-->' } | Select-Object -First 1)
     if ($prevOrigin -and $prevOrigin -match '@ ([a-f0-9]{12,})') {
       $recordedHash = $Matches[1]
@@ -127,9 +130,12 @@ foreach ($m in $mirrors) {
     }
   }
 
+  $idLines = ''
+  if ($fm.ContainsKey('name')) { $idLines += "name: $($fm['name'])`n" }
+  if ($fm.ContainsKey('description')) { $idLines += "description: $($fm['description'])`n" }
   $newFrontmatter = @"
 ---
-mirror_of: $relSsot
+$($idLines)mirror_of: $relSsot
 last_verified: $today
 verified_by: propagate-skill.ps1
 ---
@@ -142,7 +148,8 @@ verified_by: propagate-skill.ps1
     Write-Host "   [DryRun] escreveria $($newContent.Length) chars"
   } else {
     New-Item -ItemType Directory -Force -Path (Split-Path -Parent $mirrorPath) | Out-Null
-    Set-Content -LiteralPath $mirrorPath -Value $newContent -Encoding utf8 -NoNewline
+    # UTF-8 sem BOM (BOM antes do '---' atrapalha o parser de frontmatter)
+    [System.IO.File]::WriteAllText($mirrorPath, $newContent, (New-Object System.Text.UTF8Encoding $false))
     Write-Host "   OK - propagado" -ForegroundColor Green
   }
 }
