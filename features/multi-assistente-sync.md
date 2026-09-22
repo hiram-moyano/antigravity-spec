@@ -1,19 +1,19 @@
-﻿---
+---
 name: multi-assistente-sync
-description: Feature spec ratificada como P-101 a P-106 na constituicao v1.3.0. Governanca de escrita compartilhada Claude Code + Antigravity.
+description: Feature spec ratificada como P-101 a P-106 na constituicao v1.3.0. Governanca de escrita compartilhada Claude Code + Antigravity + ZCode.
 source_of_truth: true
 canonical_path: Antigravity Root/.spec/features/multi-assistente-sync.md
 mirrors: []
-last_verified: 2026-09-18
-verified_by: Claude Code (Opus 5)
+last_verified: 2026-09-21
+verified_by: Antigravity
 status: ratificada
 ratified_in: .spec/constituicao.md#p-101-a-p-106
 ---
-# Feature Spec — Governança Multi-Assistente (Antigravity ↔ Claude Code)
+# Feature Spec — Governança Multi-Assistente (Tríade: Antigravity ↔ Claude Code ↔ ZCode)
 
-**Status:** Draft (proposto por Claude Code em 2026-09-15, aguardando ratificação do Hiram + Oscar/Nexus)
+**Status:** Ratificada (atualizada em 2026-09-21 com inclusão do ZCode)
 **Fonte única da verdade:** este arquivo
-**Escopo:** todo artefato compartilhado entre Antigravity e Claude Code (skills, rules, workflows, specs, `/upcode`, comandos, agentes, grafos).
+**Escopo:** todo artefato compartilhado entre Antigravity, Claude Code e ZCode (skills, rules, workflows, specs, `/upcode`, comandos, agentes, grafos).
 
 ---
 

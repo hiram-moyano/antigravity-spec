@@ -12,6 +12,8 @@
 
 # Série P-0XX — Fundamentos de Qualidade de Código
 
+> **⚠️ Nota de desambiguação (ZCode, 21/09/2026):** as numerações **P-001..P-002 desta série** (fundamentos de código) e os **Pilares P-001..P-009 dos Maestros** (`.agents/PROTOCOLO_AGENTES_MAESTROS.md`) são espaços de numeração distintos que colidem numericamente. Ao citar qualquer P-0XX, indicar sempre a série ("P-001 da constituição" vs "Pilar P-001 do protocolo dos Maestros"). Sugestão para futura revisão: prefixar as séries (ex.: PM-xxx para os Pilares dos Maestros) antes que pilares novos sejam criados.
+
 ## P-001 [DEVE] Todo requisito tem prova executável
 Nenhuma feature é declarada pronta sem a suíte de testes (ex: `node test/agents.test.js`) e auditoria limpa (exit 0).
 - verificação(gate): intrínseca ao audit
@@ -22,12 +24,12 @@ Chaves de API (ex: `GEMINI_API_KEY`, tokens GitHub) vêm de variáveis de ambien
 
 ---
 
-# Série P-1XX — Governança Multi-Assistente (Claude Code ↔ Antigravity)
+# Série P-1XX — Governança Multi-Assistente (Tríade: Claude Code ↔ Antigravity ↔ ZCode)
 
-> Ratificado em 2026-09-17. Origem: DRAFT em `.spec/features/multi-assistente-sync.md`, criado após incidente de `last-write-wins` em `skills/upcode` (2026-09-15).
+> Ratificado em 2026-09-17; atualizado em 2026-09-21 com a integração formal do ZCode. Origem: DRAFT em `.spec/features/multi-assistente-sync.md`.
 
 ## P-101 [DEVE] Todo artefato compartilhado declara papel no frontmatter
-Todo `.md` que possa ser editado por Antigravity **e** Claude Code (skills em `.agents/skills/`, rules em `.agents/rules/`, workflows em `.agents/workflows/`, feature specs em `.spec/features/`) tem frontmatter YAML com exatamente uma das duas chaves:
+Todo `.md` que possa ser editado por Antigravity, Claude Code **e** ZCode (skills em `.agents/skills/`, rules em `.agents/rules/`, workflows em `.agents/workflows/`, feature specs em `.spec/features/`) tem frontmatter YAML com exatamente uma das duas chaves:
 
 ```yaml
 source_of_truth: true
