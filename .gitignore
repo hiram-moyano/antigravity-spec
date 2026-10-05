@@ -1,0 +1,15 @@
+# antigravity-spec — guarda de exclusao (Auditoria/emenda 03-10-2026)
+# Este repo publica SOMENTE texto de governanca (constituicao, features, verification).
+# Nada do que esta abaixo deve entrar aqui por descuido — ficam fora do git da casa:
+BRAIN/
+CONFIG/
+CONFIG/.env
+.env
+ANKI_DECKS/
+BRAND_ASSETS/
+*.mp4
+*.mkv
+*.wav
+*.m4a
+*.mov
+*.ps1.bak
